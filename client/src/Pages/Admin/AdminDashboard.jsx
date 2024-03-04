@@ -31,7 +31,7 @@ const AdminDashboard = () => {
     <div className="w-full h-screen lg:flex lg:flex-row overflow-auto">
       {/* Navigation bar on large screens */}
       <div className="w-1/5 bg-black text-white h-screen hidden lg:block">
-        <div className="flex flex-col items-center md:gap-2 uppercase font-semibold py-10 w-full px-2">
+        <div className="flex flex-col items-center md:gap-2 uppercase font-semibold py-12 w-full px-2">
           {/* <NavLink
             to="./analytics"
             className="hover:bg-slate-700 w-full flex items-center justify-start px-3 rounded-md h-10"

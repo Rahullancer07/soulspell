@@ -69,7 +69,7 @@ const CartPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-8 min-h-screen">
+    <div className="container mx-auto py-8 pt-12 min-h-screen">
       <h1 className="text-2xl font-semibold mb-4 uppercase">Your Cart</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cart Items */}
@@ -168,7 +168,7 @@ const CartPage = () => {
               })}
             </span>
           </div>
-          <button className="mt-6 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none">
+          <button className="mt-6 border hover:border-slate-400 bg-black text-white py-2 px-4 hover:bg-white hover:text-black focus:outline-none">
             Checkout
           </button>
         </div>

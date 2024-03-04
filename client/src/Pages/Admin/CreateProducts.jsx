@@ -32,7 +32,7 @@ const CreateProducts = () => {
 
   useEffect(() => {
     getAllProducts();
-  }, [allProducts]);
+  }, []);
 
   return (
     <div className="w-full h-fit p-5 md:p-10">
@@ -76,6 +76,7 @@ const CreateProducts = () => {
           setIsModalOpen={setIsModalOpen}
           getAllProducts={getAllProducts}
           selectedProduct={selectedProduct}
+          setSelectedProduct={setSelectedProduct}
         />
       )}
     </div>

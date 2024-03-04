@@ -29,7 +29,7 @@ const ProductList = ({ category, products }) => {
       <div className="flex justify-center items-center text-2xl uppercase font-semibold tracking-widest ">
         {category?.categoryName}
       </div>
-      <div className="pt-10 flex items-center justify-center">
+      <div className="pt-12 flex items-center justify-center">
         <FiltersSection />
       </div>
       {/* Products list */}

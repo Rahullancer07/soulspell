@@ -11,6 +11,7 @@ const ProductFormModal = ({
   setIsModalOpen,
   getAllProducts,
   selectedProduct,
+  setSelectedProduct
 }) => {
   const [name, setName] = useState(selectedProduct ? selectedProduct.name : "");
   const [description, setDescription] = useState(
@@ -85,7 +86,9 @@ const ProductFormModal = ({
     try {
       const { data } = await axios.post(
         `/api/v1/product/${
-          selectedProduct ? `update-product/${selectedProduct._id}` : "create-product"
+          selectedProduct
+            ? `update-product/${selectedProduct._id}`
+            : "create-product"
         }`,
         {
           name: name,
@@ -114,6 +117,18 @@ const ProductFormModal = ({
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleCancel = () => {
+    setName("");
+    setPrice(null);
+    setImages([]);
+    setDescription("");
+    setSizeQuantity(null);
+    setIsModalOpen(false);
+    setSizeQuantity([]);
+    setCategory(null);
+    setSelectedProduct(null);
   };
 
   return (
@@ -279,7 +294,7 @@ const ProductFormModal = ({
                   />
                   <button
                     type="button"
-                    onClick={() => setIsModalOpen(false)}
+                    onClick={handleCancel}
                     className="border border-slate-700 bg-white-400 h-10 rounded-lg"
                   >
                     Cancel

@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
-import transparentLogo from "../../Images/logo_transparent.png";
-import {
-  AddIcon,
-  CloseIcon,
-  AccountCircleIcon,
-  ShoppingBagIcon,
-  MenuIcon,
-} from "../../Icons/Icons";
-import { Link, NavLink } from "react-router-dom";
-import { useAuth } from "../../Context/auth.context";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useAuth } from "../../Context/auth.context";
+import {
+  AccountCircleIcon,
+  CloseIcon,
+  MenuIcon,
+  ShoppingBagIcon
+} from "../../Icons/Icons";
+import transparentLogo from "../../Images/logo_transparent.png";
 
 const Navbar = () => {
   const [sideBarMenuOpen, setSideBarMenuOpen] = useState(false);
   const [auth, setAuth] = useAuth();
   const [categories, setCategories] = useState(null);
-
   const accountPath = auth.user
     ? auth.user.isAdmin
       ? "/account/admin"
@@ -41,17 +39,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="text-black bg-white fixed top-0 left-0 z-10 w-full shadow-sm">
+    <div className="text-black bg-white fixed top-0 left-0 z-10 w-full shadow-sm  flex flex-col">
       <div className=" px-5 py-3 flex justify-center items-center md:justify-between">
-        <div className="items-center w-40 justify-center hidden md:block">
-          <ul className="flex items-center md:gap-10 uppercase font-semibold ">
-            {categories?.map((category) => (
-              <li>
-                <a href="">Men</a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div className="items-center w-40 justify-center hidden md:block"></div>
         <Link to="/">
           <img src={transparentLogo} alt="..." className="w-40 h-10" />
         </Link>
@@ -63,11 +53,25 @@ const Navbar = () => {
             <ShoppingBagIcon style={{ fontSize: "30px" }} />
           </NavLink>
         </div>
+
         <div
           className="fixed right-7 md:hidden"
           onClick={() => setSideBarMenuOpen(true)}
         >
           <MenuIcon />
+        </div>
+      </div>
+      <div className="w-full items-center justify-between hidden md:block px-4 pb-2">
+        <div className="flex flex-row justify-center mx-auto uppercase font-semibold gap-10 lg:gap-14 lg:text-lg">
+          {categories?.map((category, index) => (
+            <NavLink
+              key={index}
+              to={`/category/${category?.categoryName}`}
+              className="cursor-pointer"
+            >
+              <span className="tracking-widest">{category?.categoryName}</span>
+            </NavLink>
+          ))}
         </div>
       </div>
       {sideBarMenuOpen && (
@@ -80,13 +84,15 @@ const Navbar = () => {
           </div>
           <div className="mt-10">
             <ul className="flex flex-col gap-10 w-full px-10 text-white">
-              <li className="flex justify-between">
-                <a>Men</a>
-              </li>
-              <li className="flex justify-between">
-                <a>Women</a>
-                <AddIcon />
-              </li>
+              {categories?.map((category, index) => (
+                <NavLink
+                  key={index}
+                  to={`/category/${category?.categoryName}`}
+                  className="cursor-pointer"
+                >
+                  <span>{category?.categoryName}</span>
+                </NavLink>
+              ))}
               <NavLink to={accountPath} className="cursor-pointer">
                 <li className="flex justify-between">Account</li>
               </NavLink>

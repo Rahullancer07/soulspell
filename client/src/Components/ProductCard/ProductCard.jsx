@@ -48,6 +48,7 @@ const ProductCard = () => {
         },
       ];
       setCart(updatedCart);
+      toast.success("Item added to the cart")
       localStorage.setItem("cart", JSON.stringify(updatedCart));
     }
   };
@@ -57,7 +58,7 @@ const ProductCard = () => {
   }, [productId]);
 
   return (
-    <div className="max-w-fit mt-16 mb-10 min-h-screen">
+    <div className="max-w-fit mt-20 mb-10 min-h-screen">
       <div className="flex flex-col justify-between lg:flex-row gap-16 px-10 md:px-20">
         <ProductImageCarousel images={product?.images} />
         {/* ABOUT */}
