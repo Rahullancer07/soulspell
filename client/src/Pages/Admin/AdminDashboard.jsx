@@ -32,12 +32,12 @@ const AdminDashboard = () => {
       {/* Navigation bar on large screens */}
       <div className="w-1/5 bg-black text-white h-screen hidden lg:block">
         <div className="flex flex-col items-center md:gap-2 uppercase font-semibold py-10 w-full px-2">
-          <NavLink
+          {/* <NavLink
             to="./analytics"
             className="hover:bg-slate-700 w-full flex items-center justify-start px-3 rounded-md h-10"
           >
             Analytics
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to="./create-category"
             className="hover:bg-slate-700 w-full flex items-center justify-start px-3 rounded-md h-10"
@@ -88,12 +88,12 @@ const AdminDashboard = () => {
             <CloseIcon />
           </div>
           <div className="text-white px-3 py-5 text-lg">
-            <NavLink
+            {/* <NavLink
               to="./analytics"
               className="hover:bg-slate-700 w-full flex items-center justify-start px-3 rounded-md h-10"
             >
               Analytics
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="./create-category"
               className="hover:bg-slate-700 w-full flex items-center justify-start px-3 rounded-md h-10"

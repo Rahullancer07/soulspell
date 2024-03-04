@@ -48,7 +48,6 @@ export const updateAddressController = async (req, res) => {
             });
         }
 
-        console.log(oldAddress.userId);
         // updated user fields
         oldAddress.name = name;
         oldAddress.phone = phone;
@@ -59,7 +58,6 @@ export const updateAddressController = async (req, res) => {
         oldAddress.country = country;
         oldAddress.pinCode = pinCode;
 
-        console.log(oldAddress);
         oldAddress = await oldAddress.save();
 
         res.status(200).json({

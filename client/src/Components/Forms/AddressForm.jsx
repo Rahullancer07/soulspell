@@ -98,7 +98,6 @@ const AddressFormModal = ({
         }`,
         postData
       );
-      console.log(data);
       if (data?.success) {
         toast.success(`Address ${selectedAddress ? "updated" : "added"}`);
         setIsModalOpen(false);

@@ -28,7 +28,6 @@ const CreateCategory = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, image);
     try {
       const { data } = await axios.post("/api/v1/category/create-category", {
         categoryName: name,

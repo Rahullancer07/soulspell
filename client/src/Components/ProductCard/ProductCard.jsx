@@ -31,8 +31,6 @@ const ProductCard = () => {
 
   const handleCart = (product) => {
     // check if the quantity is available or not
-    // console.log(product);
-    // console.log("selectedSize ", selectedSize ,"quantity" , quantity);
     const quantityAvailable = product?.sizeQuantity?.find(
       (size) => size?._id === selectedSize?._id
     );

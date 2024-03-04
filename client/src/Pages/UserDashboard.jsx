@@ -23,19 +23,12 @@ const UserDashboard = () => {
     navigate("/login"); // Redirect to login after logout
   };
 
-  // Redirect to login if user is not authenticated
-  // if (!auth.user || auth.user.isAdmin) {
-  //   navigate("/login");
-  //   return null; // Render nothing while navigating
-  // }
-
   const handleEditAddress = (address) => {
     setSelectedAddress(address);
     setIsModalOpen(true);
   };
 
   const handleDeleteAddress = async (addressId) => {
-    console.log(addressId);
     try {
       const { data } = await axios.delete("/api/v1/address/deleteAddress", {
         data: { addressId: addressId },
@@ -87,8 +80,6 @@ const UserDashboard = () => {
   useEffect(() => {
     getUserAddresses();
   }, [allAddress]);
-
-  console.log(allAddress);
 
   return (
     <div className="w-full h-screen">

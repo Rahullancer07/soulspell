@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import transparentLogo from "../../Images/logo_transparent.png";
 import {
   AddIcon,
@@ -9,28 +9,47 @@ import {
 } from "../../Icons/Icons";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../Context/auth.context";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [sideBarMenuOpen, setSideBarMenuOpen] = useState(false);
   const [auth, setAuth] = useAuth();
-  console.log(auth.user);
+  const [categories, setCategories] = useState(null);
+
   const accountPath = auth.user
     ? auth.user.isAdmin
       ? "/account/admin"
       : "account/user"
     : "/login";
 
+  // get all categories
+  const getAllCategories = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/category/getAll-category");
+      if (data?.success) {
+        setCategories(data?.allCategories);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong while getting categories");
+    }
+  };
+
+  useEffect(() => {
+    getAllCategories();
+  }, []);
+
   return (
     <div className="text-black bg-white fixed top-0 left-0 z-10 w-full shadow-sm">
       <div className=" px-5 py-3 flex justify-center items-center md:justify-between">
         <div className="items-center w-40 justify-center hidden md:block">
           <ul className="flex items-center md:gap-10 uppercase font-semibold ">
-            <li>
-              <a href="">Men</a>
-            </li>
-            <li>
-              <a href="">Women</a>
-            </li>
+            {categories?.map((category) => (
+              <li>
+                <a href="">Men</a>
+              </li>
+            ))}
           </ul>
         </div>
         <Link to="/">
@@ -63,16 +82,15 @@ const Navbar = () => {
             <ul className="flex flex-col gap-10 w-full px-10 text-white">
               <li className="flex justify-between">
                 <a>Men</a>
-                <AddIcon />
               </li>
               <li className="flex justify-between">
                 <a>Women</a>
                 <AddIcon />
               </li>
-              <li className="flex justify-between">
-                <a>Account</a>
-              </li>
-              <NavLink to="cart" className="cursor-pointer">
+              <NavLink to={accountPath} className="cursor-pointer">
+                <li className="flex justify-between">Account</li>
+              </NavLink>
+              <NavLink to="/cart" className="cursor-pointer">
                 <li className="flex justify-between">Cart</li>
               </NavLink>
             </ul>

@@ -79,7 +79,6 @@ const FiltersSection = () => {
           newFilters.push(filters[index]);
         }
       }
-      console.log(newFilters);
       setFilters(newFilters);
   }
   return (
