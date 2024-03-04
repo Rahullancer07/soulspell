@@ -5,7 +5,7 @@ import JWT from "jsonwebtoken";
 // REGISTER CONTROLLER
 export const registerController = async (req, res) => {
     try {
-        const { firstName, lastName, email, password, address } = req.body
+        const { firstName, lastName, email, password , addresses} = req.body
 
         //validation 
         if (!firstName) {
@@ -34,7 +34,7 @@ export const registerController = async (req, res) => {
         const hashedPassword = await hashPassword(password);
 
         // save
-        const user = await new User({ firstName, lastName, email, password: hashedPassword, address }).save()
+        const user = await new User({ firstName, lastName, email, password: hashedPassword, addresses }).save()
 
         res.status(201).send({
             success: true,
@@ -91,8 +91,9 @@ export const loginController = async (req, res) => {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email,
-                address: user.address,
-                isAdmin: user.isAdmin
+                addresses: user.addresses,
+                isAdmin: user.isAdmin,
+                id: user._id
             },
             token,
         });
@@ -124,8 +125,9 @@ export const accountController = (req, res) => {
         console.log(error);
         res.status(500).send({
             success: false,
-            message : 'Login to check account page',
+            message: 'Login to check account page',
             error
         })
     }
 }
+

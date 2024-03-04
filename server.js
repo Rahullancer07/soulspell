@@ -4,6 +4,8 @@ import morgan from "morgan";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/auth.route.js"
 import catergoryRoutes from "./routes/category.route.js";
+import productRoutes from "./routes/product.route.js"
+import addressRoutes from "./routes/address.route.js"
 
 // configure env
 dotenv.config();
@@ -23,7 +25,9 @@ const PORT = process.env.PORT || 8080
 
 // routes
 app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/category" , catergoryRoutes);
+app.use("/api/v1/category", catergoryRoutes);
+app.use("/api/v1/product", productRoutes);
+app.use("/api/v1/address", addressRoutes);
 
 // rest api
 app.get("/", (req, res) => {

@@ -102,10 +102,30 @@ export const getAllCategoryController = async (req, res) => {
     }
 }
 
-// Get One Category controller
+// Get One Category By Id controller
 export const getOneCategoryController = async (req, res) => {
     try {
-        const {categoryName} = req.body
+        const {categoryId} = req.body;
+        const category = await Category.findById(categoryId);
+        res.status(200).send({
+            success : true,
+            category,
+            message : "Successfully fetched the Category"
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success : false,
+            error,
+            message : "Error in getting category"
+        })
+    }
+}
+
+// Get One Category By Name controller
+export const getOneCategoryByNameController = async (req, res) => {
+    try {
+        const {categoryName} = req.params;
         const category = await Category.findOne({categoryName});
         res.status(200).send({
             success : true,
@@ -121,3 +141,4 @@ export const getOneCategoryController = async (req, res) => {
         })
     }
 }
+

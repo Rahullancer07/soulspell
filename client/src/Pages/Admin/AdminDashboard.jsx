@@ -28,9 +28,9 @@ const AdminDashboard = () => {
 
   // Render admin dashboard
   return (
-    <div className="w-full h-screen lg:flex lg:flex-row">
+    <div className="w-full h-screen lg:flex lg:flex-row overflow-auto">
       {/* Navigation bar on large screens */}
-      <div className="w-1/5 bg-black text-white h-full hidden lg:block">
+      <div className="w-1/5 bg-black text-white h-screen hidden lg:block">
         <div className="flex flex-col items-center md:gap-2 uppercase font-semibold py-10 w-full px-2">
           <NavLink
             to="./analytics"
@@ -80,7 +80,7 @@ const AdminDashboard = () => {
         </div>
       )}
       {isNavbarOpen && (
-        <div className="w-3/5 h-screen bg-black">
+        <div className="w-3/5 h-screen fixed bg-black">
           <div
             className="flex items-center justify-end pr-5 pt-5 text-white"
             onClick={() => setIsNavbarOpen(false)}
@@ -127,9 +127,9 @@ const AdminDashboard = () => {
           </div>
         </div>
       )}
-      <div className="lg:w-4/5 h-screen bg-yellow-100">
-          <Outlet/>
-      </div>
+        <div className="lg:w-4/5 h-screen overflow-auto bg-slate-300">
+          <Outlet />
+        </div>
     </div>
   );
 };

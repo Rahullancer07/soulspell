@@ -4,7 +4,7 @@ import ProductCard from "../Components/ProductCard/ProductCard";
 const ProductPage = () => {
   return (
     <div>
-      <ProductCard />
+      <ProductCard/>
     </div>
   );
 };

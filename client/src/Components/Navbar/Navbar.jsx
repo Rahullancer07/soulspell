@@ -34,17 +34,15 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/">
-          <img
-            src={transparentLogo}
-            alt="..."
-            className="w-40 h-10"
-          />
+          <img src={transparentLogo} alt="..." className="w-40 h-10" />
         </Link>
         <div className="md:flex items-center gap-5 w-40 justify-center hidden">
           <NavLink to={accountPath}>
             <AccountCircleIcon style={{ fontSize: "30px" }} />
           </NavLink>
-          <ShoppingBagIcon style={{ fontSize: "30px" }} />
+          <NavLink to="/cart">
+            <ShoppingBagIcon style={{ fontSize: "30px" }} />
+          </NavLink>
         </div>
         <div
           className="fixed right-7 md:hidden"
@@ -74,9 +72,9 @@ const Navbar = () => {
               <li className="flex justify-between">
                 <a>Account</a>
               </li>
-              <li className="flex justify-between">
-                <a>Cart</a>
-              </li>
+              <NavLink to="cart" className="cursor-pointer">
+                <li className="flex justify-between">Cart</li>
+              </NavLink>
             </ul>
           </div>
         </div>

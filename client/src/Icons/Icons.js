@@ -10,8 +10,11 @@ import AddIcon from "@mui/icons-material/Add";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import RemoveIcon from "@mui/icons-material/Remove";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import CancelIcon from '@mui/icons-material/Cancel';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export {
     ArrowDropDownIcon, ArrowDropUpIcon, CloseIcon, FacebookIcon, InstagramIcon, TwitterIcon, GitHubIcon, AccountCircleIcon,
-    AddIcon, MenuIcon, ShoppingBagIcon, RemoveIcon
+    AddIcon, MenuIcon, ShoppingBagIcon, RemoveIcon , MoreVertIcon , CancelIcon, DeleteIcon
 };
