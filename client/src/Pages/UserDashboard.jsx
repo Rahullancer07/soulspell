@@ -110,7 +110,7 @@ const UserDashboard = () => {
   }, [allOrders]);
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full min-h-screen">
       <div className="w-full px-10 pt-12 flex flex-col gap-3">
         <span className="uppercase tracking-wider flex justify-start font-semibold text-2xl">
           My Account

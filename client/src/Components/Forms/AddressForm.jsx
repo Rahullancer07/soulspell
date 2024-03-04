@@ -122,7 +122,7 @@ const AddressFormModal = ({
         isModalOpen ? "bg-gray-800 bg-opacity-50" : "hidden"
       }`}
     >
-      <div className="bg-white p-8 shadow-lg w-2/5 h-3/4 overflow-auto">
+      <div className="bg-white p-8 shadow-lg md:w-2/5 h-3/4 overflow-auto">
         <span className="text-lg md:text-2xl font-semibold uppercase tracking-wider">
           Add Address
         </span>

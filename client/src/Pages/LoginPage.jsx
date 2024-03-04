@@ -44,7 +44,7 @@ const LoginPage = () => {
         </span>
         <span className="mt-7">Please enter your email and password:</span>
         <div className="mt-5 w-full">
-          <form className="flex flex-col w-96 gap-3" onSubmit={handleSubmit}>
+          <form className="flex flex-col w-96 gap-3 px-5 md:px-0" onSubmit={handleSubmit}>
             <input
               type="email"
               className="w-full h-10 border border-slate-300 px-5 placeholder:text-black "
