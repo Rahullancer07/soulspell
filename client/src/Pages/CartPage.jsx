@@ -70,20 +70,20 @@ const CartPage = () => {
 
   return (
     <div className="container mx-auto py-8 pt-12 min-h-screen">
-      <h1 className="text-2xl font-semibold mb-4 uppercase">Your Cart</h1>
+      <h1 className="text-2xl font-semibold mb-4 uppercase text-center md:text-left">Your Cart</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cart Items */}
-        <div className="shadow-md p-6 col-span-2">
-          {/* Item 1 */}
+        <div className="shadow-md p-4 md:p-6 col-span-2">
+          {/* Items */}
           {cart?.map((cartItem , index) => (
-            <div className="flex items-center border-b border-slate-200 py-4" key={index}>
+            <div className="flex items-center border-b border-slate-200 py-4  flex-col md:flex-row justify-between" key={index}>
               <img
                 src={cartItem.product.images[0]}
                 alt="Product"
                 className="w-48 h-48 object-cover rounded-md mr-4"
               />
-              <div>
-                <h2 className="text-lg font-semibold">
+              <div className="w-full flex flex-col items-center justify-center md:w-2/5 mb-5 md:mb-0">
+                <h2 className="text-lg font-semibold text-center">
                   {cartItem.product.name}
                 </h2>
                 <p className="text-gray-600">
@@ -93,7 +93,7 @@ const CartPage = () => {
                   })}
                 </p>
               </div>
-              <div className="ml-auto flex items-center justify-center">
+              <div className="flex items-center justify-center">
                 {/* Quantity button  */}
                 <div className="flex flex-row items-center border-slate-400 border">
                   <button
