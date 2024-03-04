@@ -8,6 +8,7 @@ import productRoutes from "./routes/product.route.js"
 import addressRoutes from "./routes/address.route.js"
 import orderRoutes from "./routes/order.route.js"
 import path from "path"
+import { fileURLToPath } from "url";
 
 // configure env
 dotenv.config();
@@ -15,6 +16,8 @@ dotenv.config();
 // db config
 connectDB();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // rest object
 const app = express();
 
