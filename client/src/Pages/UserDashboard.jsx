@@ -85,7 +85,6 @@ const UserDashboard = () => {
     if (auth?.user) {
       const userId = auth.user.id;
       const userOrders = allOrders?.filter((order) => order.userId === userId);
-      console.log(userOrders);
       setUserOrders(userOrders);
     }
   };
