@@ -1,0 +1,102 @@
+.loader-dots {
+    width: calc(
+      calc(var(--loader-dot-size, 16px) * 4) +
+        calc(calc(var(--loader-dot-spacing, 8px)) * 3)
+    );
+    height: var(--loader-dot-size, 16px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    filter: url("#gooey");
+  }
+  
+  .loader-dot {
+    width: var(--loader-dot-size, 16px);
+    height: var(--loader-dot-size, 16px);
+    border-radius: 50%;
+    background-color: var(--loader-dot-color, black);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  
+  .loader-dot:first-child {
+    left: calc(
+      0px -
+        calc(
+          calc(var(--loader-dot-size, 16px) * 4) +
+            var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+        )
+    );
+  }
+  
+  .loader-dot:nth-child(2) {
+    left: calc(
+      0px -
+        calc(
+          var(--loader-dot-size, 16px) +
+            var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+        )
+    );
+  }
+  
+  .loader-dot:nth-child(3) {
+    left: calc(
+      var(--loader-dot-size, 16px) +
+        var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+    );
+  }
+  
+  .loader-dot:last-child {
+    left: calc(
+      calc(var(--loader-dot-size, 16px) * 4) +
+        var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+    );
+  }
+  
+  .moving-dot {
+    animation: moving-dot var(--loader-animation-duration, 2.5s) ease infinite;
+  }
+  
+  .fixed-dot {
+    animation: fixed-dot var(--loader-animation-duration, 2.5s) ease infinite;
+  }
+  
+  @keyframes moving-dot {
+    50% {
+      transform: translateX(
+        calc(
+          calc(var(--loader-dot-size, 16px) * 4) +
+            var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+        )
+      );
+    }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  
+  @keyframes fixed-dot {
+    50% {
+      transform: translateX(
+        calc(
+          0px -
+            calc(
+              var(--loader-dot-size, 16px) +
+                var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+            )
+        )
+      );
+    }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  

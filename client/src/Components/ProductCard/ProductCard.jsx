@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useCart } from "../../Context/cart.context";
 import ProductImageCarousel from "../Carousel/ProductImageCarousel";
+import Loader from "../Loader/Loader";
 
 const ProductCard = () => {
   const productId = useParams();
@@ -13,8 +14,10 @@ const ProductCard = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
   const [cart, setCart] = useCart();
+  const [loading ,setLoading] = useState(false);
 
   const getProduct = async () => {
+    setLoading(true)
     try {
       const { data } = await axios.get(
         `/api/v1/product/getOne-product/${productId?.id}`
@@ -22,6 +25,7 @@ const ProductCard = () => {
       if (data) {
         // console.log(data);
         setProduct(data.product);
+        setLoading(false);
       }
     } catch (error) {
       console.log(error);
@@ -59,7 +63,7 @@ const ProductCard = () => {
 
   return (
     <div className="max-w-fit mt-20 mb-10 min-h-screen">
-      <div className="flex flex-col justify-between lg:flex-row gap-16 px-10 md:px-20">
+      {!loading && <div className="flex flex-col justify-between lg:flex-row gap-16 px-10 md:px-20">
         <ProductImageCarousel images={product?.images} />
         {/* ABOUT */}
         <div className="w-full md:w-3/5 lg:w-2/5 items-start mt-8 mx-auto">
@@ -113,7 +117,8 @@ const ProductCard = () => {
             <p className="text-gray-700">{product?.description}</p>
           </div>
         </div>
-      </div>
+      </div>}
+      {loading && <Loader/>}
     </div>
   );
 };
