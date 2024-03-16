@@ -8,6 +8,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix ./client",
+    "build" : "npm build --prefix ./client",
     "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "author": "Rahul Yadav",
