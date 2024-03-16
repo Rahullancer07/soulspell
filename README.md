@@ -35,7 +35,7 @@
 
 ## Demo
 
-https://aware-pear-gaiters.cyclic.app/
+https://soulspell.onrender.com/
 
 ## Feedback
 
